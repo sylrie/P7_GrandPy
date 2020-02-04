@@ -2,13 +2,13 @@
 # coding: UTF-8
 
 from requests import get
-
+from config import API_KEY
 
 class GmapsRequest:
 
     def __init__(self, user_request):
 
-        self.gkey = "AIzaSyDJPIv3WDCKR5gPkNf9f_BOtUAlXX-MaxM"
+        self.gkey = API_KEY
         self.user_request = user_request
         self.data = {}
 
