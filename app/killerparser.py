@@ -12,7 +12,7 @@ class Parser():
 
         self.sentence = sentence
 
-        with open("app/static/parsing_words.json") as stopwords:
+        with open("app\static\parsing_words.json") as stopwords:
             parsing_words = json.load(stopwords)
         
         self.punctuation = parsing_words["punctuation"]
@@ -29,13 +29,13 @@ class Parser():
         self.remove_punctuation()
         self.remove_stopwords()
         self.remove_specialwords()
-        print(self.sentence)
+        self.format_for_request()
 
     def lower_character(self):
         """ lower character """
 
         self.sentence = self.sentence.lower()
-        return self
+        return self.sentence
 
     def remove_accents(self):
         """ remove all accents """
@@ -44,7 +44,7 @@ class Parser():
             c for c in unicodedata.normalize('NFD', self.sentence)
             if unicodedata.category(c) != 'Mn'
             )
-        return self
+        return self.sentence
 
     def remove_punctuation(self):
         """ remove all punctuation """
@@ -53,15 +53,16 @@ class Parser():
             character for character in self.sentence if character not in self.punctuation
             )
         self.sentence = self.sentence.replace("'"," ")
+        self.sentence = self.sentence.replace("-"," ")
 
-        return self
+        return self.sentence
 
     def remove_stopwords(self):
         """ clean the sentence removing stopwords """
         self.sentence = " ".join(
             word for word in self.sentence.split(" ") if word not in self.stopwords
             )
-        return self
+        return self.sentence
 
     def remove_specialwords(self):
         """ clean the sentence removing specialwords """
@@ -69,8 +70,14 @@ class Parser():
         self.sentence = " ".join(
             word for word in self.sentence.split(" ") if word not in self.specialwords
             )
-        return self
+        return self.sentence
 
+    def format_for_request(self):
 
-sentence = Parser("Salut GrandPy! Est-ce que tu connais l'adresse d'OpenClassrooms ?")
+        self.sentence = " ".join(self.sentence.split())
+        self.sentence = self.sentence.replace(" ","%20")
 
+        return self.sentence
+
+a = Parser('openclassrooms')
+print(a)

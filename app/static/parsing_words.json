@@ -12,7 +12,11 @@
         "bonjour",
         "salut",
         "grandpy",
-        "est-ce"
+        "est-ce",
+        "connais", "connaissez",
+        "sais",
+        "adresse",
+        "trouve", "trouver"
     ],
 
     "stopwords": [  

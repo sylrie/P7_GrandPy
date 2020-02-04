@@ -2,11 +2,15 @@
 # coding: UTF-8
 
 
-from ..parser import Parser
+from ..killerparser import Parser
 
 
-def test_lower_character():
-    parser = Parser("Salut")
-    test_result = "salut"
-    assert parser.lower_character() == test_result
-       
+def test_parser():
+    parser = Parser("Salut GrandPy ! Est-ce que tu connais l'adresse d'openclassrooms ?")
+    test_result = "openclassrooms"
+    assert parser.sentence == test_result
+
+def test_parser_empty():
+    parser = Parser("")
+    test_result = ""
+    assert parser.sentence == test_result

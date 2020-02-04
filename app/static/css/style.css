@@ -1,0 +1,91 @@
+header
+{
+    background-image: url("../img/la_haut_haut23.jpg");
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+
+body
+{   
+    background-color: rgb(38, 20, 206);
+    font-size: 80%;
+    color: white;
+}
+
+h1, h2 
+{
+    width: 100%;
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    
+}
+
+h1 {
+    font-weight: bold;
+}
+
+form 
+{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;  
+}
+
+::placeholder {
+    text-align: center;
+}
+
+#valid
+{
+    margin: auto;
+    background-color: rgb(12, 6, 68);
+    color:white;
+    border-color: grey;
+}
+
+#valid:hover
+{
+    background-color: green;
+}
+
+#grandpy 
+{
+    width: 70%;
+    margin: auto;
+    background-color: rgb(12, 6, 68);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#map
+{
+    height: 70%;
+}
+
+main
+{   
+    line-height: 110%;
+    color: rgb(199, 75, 37);
+}
+
+p
+{
+   margin:10px;
+}
+
+strong {
+    font-size: 110%;
+    color: rgb(236, 98, 6);
+  }
+
+#footer {
+    position: absolute;
+    bottom: 0;
+}
