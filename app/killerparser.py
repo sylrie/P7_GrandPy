@@ -78,6 +78,3 @@ class Parser():
         self.sentence = self.sentence.replace(" ","%20")
 
         return self.sentence
-
-a = Parser('openclassrooms')
-print(a)

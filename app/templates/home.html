@@ -3,34 +3,36 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../static/css/style.css" />
-        <title>Grandpy Bot </title>
+        <title>Grandpy Bot 🤖</title>
     </head>
     
     <body>
         
         <header>
             <div id="titre_principal">
-                <h1>Grandpy Bot</h1>
+                
+                <h1>🤖 Grandpy Bot 👴</h1>
                 <h2>Le papy qui sait tout !</h2>
             </div>
         </header>
-
-        <div id="map"></div>
-        
-        <form>
-            <div><input type="text" size="60" id="question"
-                placeholder="Demande-moi ce que tu veux ici"
-                onFocus="if(this.value!='')this.value=''"/>
-            </div>
-            <div><input type="button" id="valid" value="Valider"/></div>
-        </form>
         
         <main>
-            <div id="grandpy">Réponse de papy...</div>
-        </main>
+            <div id="grandpy"></div>
+        
+            <form>
+                <div><input type="text" size="60" id="question"
+                    placeholder="Demande-moi ce que tu veux ici"
+                    onFocus="if(this.value!='')this.value=''"/>
+                </div>
+                <div><input type="button" id="valid" value="Valider"/></div>
+            </form>
 
+            <div id="map"></div>
+
+        </main>
+        
         <footer id="footer">
-            Retrouvez le code sur <a href="https://github.com/sylrie/P7_GrandPy.git">Github</a>
+            Retrouvez le code sur <a id='link' href="https://github.com/sylrie/P7_GrandPy.git" target="_blank">GitHub</a>
         </footer>
         
         <script
@@ -39,8 +41,8 @@
         crossorigin="anonymous"></script>
 
         <script type="text/javascript" src="../static/js/index.js"></script>
-        <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJPIv3WDCKR5gPkNf9f_BOtUAlXX-MaxM&callback=initMap">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJPIv3WDCKR5gPkNf9f_BOtUAlXX-MaxM&callback=initMap&callback=initMap"
+        async defer></script>
         </script>
     </body>
 

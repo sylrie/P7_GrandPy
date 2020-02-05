@@ -8,7 +8,7 @@ class GmapsRequest:
 
     def __init__(self, user_request):
 
-        self.gkey = API_KEY
+        self.API_KEY = API_KEY
         self.user_request = user_request
         self.data = {}
 
@@ -20,7 +20,7 @@ class GmapsRequest:
         
         params = {
             'address': self.user_request,
-            'key': self.gkey,
+            'key': self.API_KEY,
             'region':'fr'
         }
 

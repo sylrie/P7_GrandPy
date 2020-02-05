@@ -55,8 +55,8 @@ class UserRequest:
         papy = Grandpy(self.location_status, self.grandpy_number)
 
         if self.location_status == "OK":
-            self.location["lat"] = loc.data.get("lat")
-            self.location["lng"] = loc.data.get("lng")
+            self.location["lat"] = float(loc.data.get("lat"))
+            self.location["lng"] = float(loc.data.get("lng"))
             self.response["address"] = loc.data.get("address")
             self.response["papy_1"] = papy.grandpy_1
             
