@@ -6,7 +6,7 @@ header
 }
 body
 {   
-    background-image: url("../img/Papy_answering.jpg");
+    background-image: url("../img/background.jpg");
     background-attachment:fixed;
     background-repeat:no-repeat;
     background-size: cover;
@@ -67,7 +67,7 @@ form
     width: 50%;
     margin: auto;
     text-align: center;
-    height: 70%;
+    height: 300px;
 }
 #searching
 {
@@ -88,6 +88,7 @@ p
     background-color: rgba(9, 5, 53, 0.76);
     border: none;
     border-radius: 10px;
+    color: white;
 }
 strong 
 {

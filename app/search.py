@@ -24,7 +24,9 @@ class UserRequest:
             "address" : "",
             "papy_2" :"",
             "story" : "",
-            "fullurl" : ""
+            "fullurl" : "",
+            "lat" : "",
+            "lng" : ""
         }
         self.location_status = ""
 
@@ -55,8 +57,8 @@ class UserRequest:
         papy = Grandpy(self.location_status, self.grandpy_number)
 
         if self.location_status == "OK":
-            self.location["lat"] = float(loc.data.get("lat"))
-            self.location["lng"] = float(loc.data.get("lng"))
+            self.response["lat"] = float(loc.data.get("lat"))
+            self.response["lng"] = float(loc.data.get("lng"))
             self.response["address"] = loc.data.get("address")
             self.response["papy_1"] = papy.grandpy_1
             
@@ -67,7 +69,7 @@ class UserRequest:
 
         self.grandpy_number = 2
 
-        story = MediawikiRequest(self.location['lat'],self.location['lng'])
+        story = MediawikiRequest(self.response['lat'],self.response['lng'])
         status = ""
         if story.story[0] != "":
             status = "OK"

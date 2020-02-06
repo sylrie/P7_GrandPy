@@ -1,6 +1,5 @@
 const valid = document.getElementById("valid");
 
-
 function grandpy(response) {
   let elt = document.getElementById("grandpy");
   let papy_1 = response["papy_1"];
@@ -42,11 +41,16 @@ function grandpy(response) {
 };
 
 function initMap(lat, lng) {
-  new google.maps.Map(document.getElementById('map'), {
-    center: {lat: lat, lng:lng},
-    zoom: 10
-    });
-  stopSearching();
+
+  var pos = {lat: lat, lng: lng};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: pos
+  });
+  var marker = new google.maps.Marker({
+    position: pos,
+    map: map
+  });
 };
 
 function searching(){
@@ -61,10 +65,13 @@ function stopSearching(){
   elt.innerHTML = ("");
 };
 
-
+// 
 valid.addEventListener("click", function() {
   
+  // user request
   var question = document.getElementById("question").value;
+  
+  //select element
   let elt = document.getElementById("grandpy");
   
   // display the question
@@ -80,6 +87,5 @@ valid.addEventListener("click", function() {
 
   // run search
   $.ajax({url: "/grandpy/" + question, success: grandpy});
-  
 });
 
