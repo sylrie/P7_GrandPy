@@ -1,9 +1,9 @@
-const valid = document.getElementById("user_request");
+const valid = $("#user_request")[0];
+var count = 0;
 
 function grandpy(response) {
   
-  let elt = document.getElementById("grandpy");
-  let newP = elt.appendChild(document.createElement('p'));
+  let elt = $("#grandpy")[0];
   
   let papy_1 = response["papy_1"];
   let address = response["address"];
@@ -13,38 +13,46 @@ function grandpy(response) {
   let lat = response["lat"];
   let lng = response["lng"];
   
+  stopSearching();
+
+  var newP = elt.appendChild(document.createElement('p'));
   newP.innerHTML += papy_1;
+  
   if (address != "") {
-    elt.innerHTML += (
-      "<p><strong>" + address + "</strong></p>"
-    );
-  }
-  if (lat == "") {
-    stopSearching();
-  } else {
-    initMap(lat, lng);
-  }
+    var newP = elt.appendChild(document.createElement('p'));
+    var strong = newP.appendChild(document.createElement('STRONG'));
+    strong.innerHTML = address;
+    
+    count++;
+    let map = elt.appendChild(document.createElement('div'));
+    map.id = "map" + count;
+    map.setAttribute('class', 'map col-lg-7 justify-content-lg-center my-1');
+  
+    if (lat != "") {
+      initMap(lat, lng, map);
+    };
+  };
   if (papy_2 != "") {
-    elt.innerHTML += (
-      "<p>" + papy_2 + "</p>"
-    );
-  }
+    var newP = elt.appendChild(document.createElement('p'));
+    newP.innerHTML += papy_2;
+  };
   if (story != "") {
-    elt.innerHTML += (
-      "<p>" + story + "</p>"
-    );
-  }
+    var newP = elt.appendChild(document.createElement('p'));
+    newP.innerHTML += story;
+  };
   if (fullurl != "") {
-    elt.innerHTML += (
-      "<p>Va demander à <a id='link' href=" + fullurl + " target=_blank>WikiPedia</a> si tu ne me crois pas!</p>"
+    var newP = elt.appendChild(document.createElement('p'));
+    newP.innerHTML += (
+      "Va demander à <a id='link' href=" + fullurl + " target=_blank>WikiPedia</a> si tu ne me crois pas!"
     );
-  }
+  };
+window.scrollTo(0,document.body.scrollHeight);
 };
 
-function initMap(lat, lng) {
-  
+
+function initMap(lat, lng, map) {
   var pos = {lat: lat, lng: lng};
-  var map = new google.maps.Map(document.getElementById('map'), {
+  var map = new google.maps.Map(map , {
     zoom: 10,
     center: pos
   });
@@ -55,36 +63,39 @@ function initMap(lat, lng) {
 };
 
 function searching(){
-  let elt = document.getElementById("map");
-  elt.innerHTML = (
-    "<a class='row justify-content-lg-center'><img src='../static/img/loader.gif' alt='error'/></a>"
+  let elt = $("#grandpy")[0];
+  var newA = elt.appendChild(document.createElement('a'));
+  newA.id ='searching';
+  newA.setAttribute("class", "row justify-content-lg-center")
+  newA.innerHTML = (
+    "<img src='../static/img/loader.gif' alt='error'/>"
   );
 };
 
 function stopSearching(){
-  let elt = document.getElementById("map");
-  elt.innerHTML = ("");
+  let elt = $("#grandpy")[0];
+  let gif = $("#searching")[0];
+  elt.removeChild(gif);
 };
 
 // 
 valid.addEventListener("submit", function(evt) {
   
   // user request
-  var question = document.getElementById("question").value;
+  var question = $("#question")[0].value;
   
   if (question.trim() != "") {
   
     //select element
-    let elt = document.getElementById("grandpy");
+    let elt = $('#grandpy')[0];
     
     // display the question
     let user = elt.appendChild(document.createElement('p'));
     user.id = 'user';
+    user.innerHTML = question;
 
-    user.innerHTML += question;
-    
     // reset form
-    document.getElementById("question").value = "";
+    $("#question")[0].value = "";
 
     // display searching img
     searching();
@@ -92,5 +103,6 @@ valid.addEventListener("submit", function(evt) {
     $.ajax({url: "/grandpy/" + question, success: grandpy});
   };
   evt.preventDefault();
+  
 });
 

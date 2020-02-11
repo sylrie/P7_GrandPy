@@ -13,18 +13,17 @@
         
         <header class="header md-auto border-bottom py-1">
             <div class="row w-100 justify-content-md-around">
-                
-                <h1 class="col-lg-auto"><img src="..\static\img\logo.png" class="img-fluid rounded" alt="Granpy">Grandpy Bot</h1></p>
-                <h2 class="row col-lg-auto align-items-end"><i>Le papy qui sait presque tout !</i></h2>
+                <img class="row col-sm-auto" src="..\static\img\logo.png" class="img-fluid rounded" alt="Granpy">
+                <h1 class="row col-sm-5 align-items-center"> Grandpy Bot</h1>
+                <h2 class="row col-sm-5 align-items-center">Le papy qui sait presque tout !</h2>
+                <img class="row col-sm-auto" src="..\static\img\logo2.png" class="img-fluid rounded" alt="Granpy">
                 
             </div>
         </header>
         
         <main>
 
-            
-            <div id="grandpy" class="container col-lg-7 justify-content-lg-center"></div>
-            
+            <div id="grandpy" class="container overflow-auto mh-75 col-lg-7 justify-content-lg-center "></div>
         
             <form id="user_request" class="container text-center">
                 
@@ -32,12 +31,9 @@
                     placeholder="Demande-moi ce que tu veux ici"
                     onFocus="if(this.value!='')this.value=''"/>
                 
-                
                 <input class="col-xs-1" type="submit" id="valid" value="Valider"/></div>
             
             </form>
-
-            <div id="map" class="container col-lg-5 justify-content-lg-center"></div>
 
         </main>
         
