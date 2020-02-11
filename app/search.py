@@ -14,11 +14,6 @@ class UserRequest:
         self.sentence = sentence
         self.grandpy_number = int
         
-        self.location = {
-            "lat" : "",
-            "lng" : ""
-        }
-
         self.response = {
             "papy_1" : "",
             "address" : "",
@@ -35,6 +30,13 @@ class UserRequest:
     def run_search(self):
 
         self.parse_sentence()
+        
+        """if self.sentence == "":
+            papy = Grandpy("", 1)
+            self.response["papy_1"] = papy.grandpy_1
+            
+        else:"""
+           
         self.get_location()
         if self.location_status == "OK":
             self.get_story()
@@ -82,4 +84,3 @@ class UserRequest:
             papy = Grandpy(status, self.grandpy_number)
 
             self.response["papy_2"] = papy.grandpy_2
-

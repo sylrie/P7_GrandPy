@@ -1,39 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-100">
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../static/css/style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+         crossorigin="anonymous">
+         <link rel="stylesheet" href="../static/css/style.css">
         <title>Grandpy Bot 🤖</title>
     </head>
     
-    <body>
+    <body class="d-flex flex-column h-100">
         
-        <header>
-            <div id="titre_principal">
+        <header class="header md-auto border-bottom py-1">
+            <div class="row w-100 justify-content-md-around">
                 
-                <h1>🤖 Grandpy Bot 👴</h1>
-                <h2>Le papy qui sait tout !</h2>
+                <h1 class="col-lg-auto"><img src="..\static\img\logo.png" class="img-fluid rounded" alt="Granpy">Grandpy Bot</h1></p>
+                <h2 class="row col-lg-auto align-items-end"><i>Le papy qui sait presque tout !</i></h2>
+                
             </div>
         </header>
         
         <main>
-            <div id="grandpy"></div>
+
+            
+            <div id="grandpy" class="container col-lg-7 justify-content-lg-center"></div>
+            
         
-            <form>
-                <div><input type="text" size="60" id="question"
+            <form id="user_request" class="container text-center">
+                
+                <input class="col-lg-4" type="text" id="question"
                     placeholder="Demande-moi ce que tu veux ici"
                     onFocus="if(this.value!='')this.value=''"/>
-                </div>
-                <div><input type="button" id="valid" value="Valider"/></div>
+                
+                
+                <input class="col-xs-1" type="submit" id="valid" value="Valider"/></div>
+            
             </form>
 
-            <div id="map"></div>
+            <div id="map" class="container col-lg-5 justify-content-lg-center"></div>
 
         </main>
         
-        <footer id="footer">
-            Retrouvez le code sur <a id='link' href="https://github.com/sylrie/P7_GrandPy.git" target="_blank">GitHub</a>
-        </footer>
+        <footer class="footer mt-auto border-top text-center py-1">
+            <div class="row w-100 justify-content-md-around">
+              <div class="col-md-auto border border-dark">
+                Voir le code sur
+                <a href="https://github.com/sylrie" target ="_blank">
+                    GitHub <img src="..\static\img\github.png" class="img-fluid" alt="linkedin"></a>
+              </div>
+              <div class="col-md-auto col-md-offset-1 border border-dark shadow">
+                  Sylvain Rieutor
+                  <a href="https://openclassrooms.com/" target ="_blank">
+                    Openclassrooms <img src="..\static\img\OpenClassrooms.png" class="img-fluid" alt="linkedin"></a>
+              </div>
+              <div class="col-md-auto border border-dark">
+                Voir profil
+                <a href="https://www.linkedin.com/in/sylvain-rieutor-7a558a157/" target ="_blank">
+                    Linkedin <img src="..\static\img\linkedin.png" class="img-fluid" alt="linkedin"></a>
+              </div>
+          </footer> 
         
         <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"

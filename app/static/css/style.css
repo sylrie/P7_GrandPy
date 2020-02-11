@@ -1,37 +1,23 @@
-header
+
+header, footer
 {
-    width: 100%;
-    background-color: rgba(9, 5, 53, 0.76);
-    border-radius: 10px;
+   
+    background-color: rgba(9, 5, 53, 0.7);
+    font-size: medium;
+    color: lightgray;
+    padding-top: 1px;
 }
+
 body
 {   
     background-image: url("../img/background.jpg");
     background-attachment:fixed;
     background-repeat:no-repeat;
     background-size: cover;
-    font-size: 80%;
-}
-
-h1, h2 
-{
-    
-    margin: auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: center;
-    color: white;
-}
-
-h1 {
-    font-weight: bold;
 }
 
 form 
 {
-    width: 60%;
-    margin: auto;
-    text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -42,11 +28,10 @@ form
 
 #valid
 {
-    margin: auto;
-    background-color: rgba(9, 5, 53, 0.76);
+    
+    background-color: rgba(9, 5, 53, 0.9);
     color:white;
-    border: none;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #valid:hover
@@ -55,39 +40,29 @@ form
 }
 
 #grandpy 
-{
-    width: 50%;
-    margin: auto;
-    background-color: rgba(9, 5, 53, 0.76);
+{   
+    max-height: 500px;
+    overflow: auto;
+    scroll-behavior: smooth;
+    background-color: rgba(9, 5, 53, 0.8);
     border-radius: 10px;
 }
-
 #map
 {
-    width: 50%;
-    margin: auto;
-    text-align: center;
     height: 300px;
 }
-#searching
-{
-    opacity: 0.5;
-}
+
 main
 {   
+    padding: 1% 0 1% 0;
     line-height: 110%;
     color: rgb(199, 75, 37);
 }
 
-p
-{
-   margin:10px;
-}
 #question
 {
     background-color: rgba(9, 5, 53, 0.76);
-    border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     color: white;
 }
 strong 
@@ -95,28 +70,9 @@ strong
     font-size: 110%;
     color: rgb(236, 98, 6);
 }
-
-#footer 
-{
-    margin: auto;
-    width: 99%;
-    background-color: rgba(9, 5, 53, 0.76);
-    position: absolute;
-    bottom: 0;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    border-radius: 10px;
-    color:white;
-}
 #user
 {
     text-align: right;
-    color: chartreuse;
+    color: lightgreen;
 }
-#link
-{
-    color:  rgb(236, 98, 6);
-    font-style: italic;
-    font-weight: bold;
-    text-decoration: none;
-}
+

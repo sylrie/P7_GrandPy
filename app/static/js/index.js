@@ -1,7 +1,10 @@
-const valid = document.getElementById("valid");
+const valid = document.getElementById("user_request");
 
 function grandpy(response) {
+  
   let elt = document.getElementById("grandpy");
+  let newP = elt.appendChild(document.createElement('p'));
+  
   let papy_1 = response["papy_1"];
   let address = response["address"];
   let papy_2 = response["papy_2"];
@@ -10,13 +13,16 @@ function grandpy(response) {
   let lat = response["lat"];
   let lng = response["lng"];
   
-  elt.innerHTML += (
-    "<p><br>" + papy_1 + "</p>"
-    );
+  newP.innerHTML += papy_1;
   if (address != "") {
     elt.innerHTML += (
       "<p><strong>" + address + "</strong></p>"
     );
+  }
+  if (lat == "") {
+    stopSearching();
+  } else {
+    initMap(lat, lng);
   }
   if (papy_2 != "") {
     elt.innerHTML += (
@@ -30,18 +36,13 @@ function grandpy(response) {
   }
   if (fullurl != "") {
     elt.innerHTML += (
-      "<p><a id='link' href=" + fullurl + " target=_blank>Tu veux en savoir plus ?</a></p>"
+      "<p>Va demander à <a id='link' href=" + fullurl + " target=_blank>WikiPedia</a> si tu ne me crois pas!</p>"
     );
-  }
-  if (lat == "") {
-    stopSearching();
-  } else {
-    initMap(lat, lng);
   }
 };
 
 function initMap(lat, lng) {
-
+  
   var pos = {lat: lat, lng: lng};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 10,
@@ -56,7 +57,7 @@ function initMap(lat, lng) {
 function searching(){
   let elt = document.getElementById("map");
   elt.innerHTML = (
-    "<a id='searching'><img src='../static/img/searching.gif' alt='error'/></a>"
+    "<a class='row justify-content-lg-center'><img src='../static/img/loader.gif' alt='error'/></a>"
   );
 };
 
@@ -66,26 +67,30 @@ function stopSearching(){
 };
 
 // 
-valid.addEventListener("click", function() {
+valid.addEventListener("submit", function(evt) {
   
   // user request
   var question = document.getElementById("question").value;
   
-  //select element
-  let elt = document.getElementById("grandpy");
+  if (question.trim() != "") {
   
-  // display the question
-  elt.innerHTML = (
-    "<p id=user>" + question + "</p>"
-    );
+    //select element
+    let elt = document.getElementById("grandpy");
+    
+    // display the question
+    let user = elt.appendChild(document.createElement('p'));
+    user.id = 'user';
 
-  // reset form
-  document.getElementById("question").value = "";
+    user.innerHTML += question;
+    
+    // reset form
+    document.getElementById("question").value = "";
 
-  // display searching img
-  searching();
-
-  // run search
-  $.ajax({url: "/grandpy/" + question, success: grandpy});
+    // display searching img
+    searching();
+    // run search
+    $.ajax({url: "/grandpy/" + question, success: grandpy});
+  };
+  evt.preventDefault();
 });
 
