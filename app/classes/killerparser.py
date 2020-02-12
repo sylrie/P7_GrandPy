@@ -79,3 +79,6 @@ class Parser():
         self.sentence = " ".join(self.sentence.split())
         self.sentence = self.sentence.replace(" ", "%20")
         return self.sentence
+
+t = Parser('coucou')
+print(t.sentence)

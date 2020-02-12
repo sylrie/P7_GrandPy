@@ -73,26 +73,27 @@ class MediawikiRequest():
 
         request = get(url=url, params=params)
         result = request.json()
+        try:
+            places = result['query']['geosearch']
+            title = places[0]['title']
 
-        places = result['query']['geosearch']
-        title = places[0]['title']
+            params = {
+                'action':"query",
+                'exsentences':2,
+                'exlimit':2,
+                'explaintext':True,
+                'exsectionformat':'plain',
+                'titles': title,
+                'format':"json",
+                'prop':"extracts|info",
+                'inprop': 'url'
+            }
 
-        params = {
-            'action':"query",
-            'exsentences':2,
-            'exlimit':2,
-            'explaintext':True,
-            'exsectionformat':'plain',
-            'titles': title,
-            'format':"json",
-            'prop':"extracts|info",
-            'inprop': 'url'
-        }
-
-        request = get(url=url, params=params)
-        result = request.json()
-        pages = result['query']['pages']
-        for key, args in pages.items():
-            self.story = args['extract'], args['fullurl']
-
+            request = get(url=url, params=params)
+            result = request.json()
+            pages = result['query']['pages']
+            for key, args in pages.items():
+                self.story = args['extract'], args['fullurl']
+        except:
+            pass
         return self.story

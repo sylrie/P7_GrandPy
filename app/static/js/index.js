@@ -75,7 +75,7 @@ function SearchingGif(action){
     newA.setAttribute("class", "row justify-content-lg-center");
 
     var newImg = newA.appendChild(document.createElement('img'));
-    newImg.src = '..\static\img_loader.gif';
+    newImg.src = '../static/img/loader.gif';
   } else {
     let gif = $("#searching")[0];
     elt.removeChild(gif);

@@ -73,7 +73,7 @@ class UserRequest:
 
         story = MediawikiRequest(self.response['lat'],self.response['lng'])
         status = ""
-        if story.story[0] != "":
+        if story.story != "":
             status = "OK"
             papy = Grandpy(status, self.grandpy_number)
 
