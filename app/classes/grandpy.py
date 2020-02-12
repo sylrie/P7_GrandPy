@@ -37,7 +37,7 @@ class Grandpy():
             self.grandpy_1 = choice(
                 [
                     "J'ai bien trouvé le lieu que tu cherchais, l'adresse est : ",
-                    "oui mon poussin, je connais ! L'adresse c'est : ",
+                    "Oui mon poussin, je connais ! L'adresse c'est : ",
                     "Effectivement mon petit, c'est ici : "
                 ]
             )
