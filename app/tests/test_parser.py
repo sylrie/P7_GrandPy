@@ -2,7 +2,7 @@
 # coding: UTF-8
 
 
-from ..killerparser import Parser
+from ..classes.killerparser import Parser
 
 
 def test_parser():

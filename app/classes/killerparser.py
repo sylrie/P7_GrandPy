@@ -1,3 +1,4 @@
+""" Parse the user request"""
 #! /usr/bin/env python3
 # coding: UTF-8
 
@@ -12,9 +13,9 @@ class Parser():
 
         self.sentence = sentence
 
-        with open("app\static\parsing_words.json") as stopwords:
+        with open("app/docs/parsing_words.json", "r") as stopwords:
             parsing_words = json.load(stopwords)
-        
+
         self.punctuation = parsing_words["punctuation"]
         self.stopwords = parsing_words["stopwords"]
         self.specialwords = parsing_words["specialwords"]
@@ -52,8 +53,8 @@ class Parser():
         self.sentence = "".join(
             character for character in self.sentence if character not in self.punctuation
             )
-        self.sentence = self.sentence.replace("'"," ")
-        self.sentence = self.sentence.replace("-"," ")
+        self.sentence = self.sentence.replace("'", " ")
+        self.sentence = self.sentence.replace("-", " ")
 
         return self.sentence
 
@@ -73,7 +74,8 @@ class Parser():
         return self.sentence
 
     def format_for_request(self):
+        """ set format for request api"""
 
         self.sentence = " ".join(self.sentence.split())
-        self.sentence = self.sentence.replace(" ","%20")
+        self.sentence = self.sentence.replace(" ", "%20")
         return self.sentence

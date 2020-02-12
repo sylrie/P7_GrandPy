@@ -9,47 +9,52 @@
         <title>Grandpy Bot 🤖</title>
     </head>
     
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100 bg-secondary">
         
-        <header class="header md-auto border-bottom py-1">
+        <header class="header md-auto border-bottom px-3 py-1 bg-dark text-white">
             <div class="row w-100 justify-content-md-around">
                 <img class="row col-sm-auto" src="..\static\img\logo.png" class="img-fluid rounded" alt="Granpy">
-                <h1 class="row col-sm-5 align-items-center"> Grandpy Bot</h1>
-                <h2 class="row col-sm-5 align-items-center">Le papy qui sait presque tout !</h2>
-                <img class="row col-sm-auto" src="..\static\img\logo2.png" class="img-fluid rounded" alt="Granpy">
+                <h1 class="row col-sm-5 align-items-center justify-content-center"> Grandpy Bot</h1>
+                <h2 class="row col-sm-5 align-items-center justify-content-center">Le papy qui sait presque tout !</h2>
+                <img class="row col-sm-auto col" src="..\static\img\logo.png" class="img-fluid rounded" alt="Granpy">
                 
             </div>
         </header>
         
         <main>
+            <div class="container w-100 ">
+                <div class="row justify-content-sm-center ">
+                    <img class="col-sm-auto py-1" src="..\static\img\carl2.png" class="img-fluid rounded" alt="Granpy">
+                </div>
+            </div>
 
-            <div id="grandpy" class="container overflow-auto mh-75 col-lg-7 justify-content-lg-center "></div>
-        
-            <form id="user_request" class="container text-center">
-                
-                <input class="col-lg-4" type="text" id="question"
+            <div id="grandpy" class="container col-lg-7 justify-content-lg-center font-weight-bold text-info"></div>
+
+            <form id="user_request" class="container text-center py-1">
+                    
+                <input class="col-lg-4 align-self-center border-light rounded bg-light text-dark my-1" type="text" id="question"
                     placeholder="Demande-moi ce que tu veux ici"
                     onFocus="if(this.value!='')this.value=''"/>
                 
-                <input class="col-xs-1" type="submit" id="valid" value="Valider"/></div>
-            
+                <input class="col-xs-1 align-self-center bg-primary text-dark border border-dark rounded" type="submit" id="valid" value="Valider"/>
+                
             </form>
 
         </main>
         
-        <footer class="footer mt-auto border-top text-center py-1">
+        <footer class="footer mt-auto border-top text-center py-1 bg-dark text-white">
             <div class="row w-100 justify-content-md-around">
-              <div class="col-md-auto border border-dark">
+              <div class="col-md-auto border rounded">
                 Voir le code sur
                 <a href="https://github.com/sylrie" target ="_blank">
                     GitHub <img src="..\static\img\github.png" class="img-fluid" alt="linkedin"></a>
               </div>
-              <div class="col-md-auto col-md-offset-1 border border-dark shadow">
+              <div class="col-md-auto col-md-offset-1 border rounded">
                   Sylvain Rieutor
                   <a href="https://openclassrooms.com/" target ="_blank">
                     Openclassrooms <img src="..\static\img\OpenClassrooms.png" class="img-fluid" alt="linkedin"></a>
               </div>
-              <div class="col-md-auto border border-dark">
+              <div class="col-md-auto border rounded">
                 Voir profil
                 <a href="https://www.linkedin.com/in/sylvain-rieutor-7a558a157/" target ="_blank">
                     Linkedin <img src="..\static\img\linkedin.png" class="img-fluid" alt="linkedin"></a>

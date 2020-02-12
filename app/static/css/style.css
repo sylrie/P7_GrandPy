@@ -1,77 +1,11 @@
 
-header, footer
-{
-   
-    background-color: rgba(9, 5, 53, 0.7);
-    font-size: medium;
-    color: lightgray;
-}
-
-body
-{   
-    background-image: url("../img/background2.jpg");
-    background-position: fixed;
-    background-size: 100%;
-    
-}
-
-form 
-{
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-::placeholder {
-    text-align: center;
-}
-
-#valid
-{
-    
-    background-color: rgba(9, 5, 53, 0.9);
-    color:white;
-    border-radius: 10px;
-}
-
-#valid:hover
-{
-    background-color: green;
-}
-
 #grandpy 
 {   
-    
-   
-    background-color: rgba(9, 5, 53, 0.8);
+    background-color: rgba(38, 38, 39, 0.9);
     border-radius: 10px;
 }
 .map
 {
-    
     height: 300px;
-}
-
-main
-{   
-    padding: 1% 0 1% 0;
-    line-height: 110%;
-    color: rgb(199, 75, 37);
-}
-
-#question
-{
-    background-color: rgba(9, 5, 53, 0.76);
-    border-radius: 15px;
-    color: white;
-}
-strong 
-{
-    font-size: 110%;
-    color: rgb(236, 98, 6);
-}
-#user
-{
-    text-align: right;
-    color: lightgreen;
 }
 

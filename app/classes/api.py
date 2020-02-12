@@ -1,48 +1,55 @@
+""" Use GooGleMpas API (Geocode) and MediaWiki API"""
+
 #! /usr/bin/env python3
 # coding: UTF-8
 
 from requests import get
-from config import API_KEY
+from .config import API_KEY
 
-class GmapsRequest:
+class GmapsRequest():
+    """ Use GoogleMaps API (geocode) for find the adress"""
 
     def __init__(self, user_request):
 
-        self.API_KEY = API_KEY
+        self.api_key = API_KEY
         self.user_request = user_request
         self.data = {}
 
         self.request_api()
 
     def request_api(self):
+        """ GoogleMaps API request
+        get status, lat, lng and address"""
 
         url = "https://maps.googleapis.com/maps/api/geocode/json"
-        
+
         params = {
             'address': self.user_request,
-            'key': self.API_KEY,
+            'key': self.api_key,
             'region':'fr'
         }
 
         request = get(url=url, params=params)
         result = request.json()
-        
+
         if result['status'] == "OK":
             self.data = {
-                "status": result['status'],
+                "status": "OK",
                 "lat": result['results'][0]['geometry']['location']['lat'],
                 "lng": result['results'][0]['geometry']['location']['lng'],
                 "address": result['results'][0]['formatted_address']
             }
+
         else:
             self.data = {
                 "status": result['status']
             }
 
         return self.data
-        
-class MediawikiRequest:
-   
+
+class MediawikiRequest():
+    """ use MediaWiki API for find a story"""
+
     def __init__(self, latitude, longitude):
         self.latitude = latitude
         self.longitude = longitude
@@ -50,6 +57,8 @@ class MediawikiRequest:
         self.request_api()
 
     def request_api(self):
+        """ MediaWiki API request
+        get story and url"""
 
         url = "https://fr.wikipedia.org/w/api.php"
 
@@ -61,12 +70,13 @@ class MediawikiRequest:
             'gslimit':1,
             'format':"json"
         }
+
         request = get(url=url, params=params)
         result = request.json()
 
         places = result['query']['geosearch']
         title = places[0]['title']
-        
+
         params = {
             'action':"query",
             'exsentences':2,
@@ -78,6 +88,7 @@ class MediawikiRequest:
             'prop':"extracts|info",
             'inprop': 'url'
         }
+
         request = get(url=url, params=params)
         result = request.json()
         pages = result['query']['pages']

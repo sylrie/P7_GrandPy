@@ -13,7 +13,7 @@ function grandpy(response) {
   let lat = response["lat"];
   let lng = response["lng"];
   
-  stopSearching();
+  SearchingGif('stop');
 
   var newP = elt.appendChild(document.createElement('p'));
   newP.innerHTML += papy_1;
@@ -21,6 +21,7 @@ function grandpy(response) {
   if (address != "") {
     var newP = elt.appendChild(document.createElement('p'));
     var strong = newP.appendChild(document.createElement('STRONG'));
+    strong.setAttribute('class', 'text-warning')
     strong.innerHTML = address;
     
     count++;
@@ -32,6 +33,7 @@ function grandpy(response) {
       initMap(lat, lng, map);
     };
   };
+  
   if (papy_2 != "") {
     var newP = elt.appendChild(document.createElement('p'));
     newP.innerHTML += papy_2;
@@ -62,20 +64,20 @@ function initMap(lat, lng, map) {
   });
 };
 
-function searching(){
+function SearchingGif(action){
   let elt = $("#grandpy")[0];
-  var newA = elt.appendChild(document.createElement('a'));
-  newA.id ='searching';
-  newA.setAttribute("class", "row justify-content-lg-center")
-  newA.innerHTML = (
-    "<img src='../static/img/loader.gif' alt='error'/>"
-  );
-};
+  if (action == "start"){
+    
+    var newA = elt.appendChild(document.createElement('a'));
+    newA.id ='searching';
+    newA.setAttribute("class", "row justify-content-lg-center");
 
-function stopSearching(){
-  let elt = $("#grandpy")[0];
-  let gif = $("#searching")[0];
-  elt.removeChild(gif);
+    var newImg = newA.appendChild(document.createElement('img'));
+    newImg.src = '../static/img/loader.gif';
+  } else {
+    let gif = $("#searching")[0];
+    elt.removeChild(gif);
+  }
 };
 
 // 
@@ -92,13 +94,14 @@ valid.addEventListener("submit", function(evt) {
     // display the question
     let user = elt.appendChild(document.createElement('p'));
     user.id = 'user';
+    user.setAttribute('class', 'text-success text-right')
     user.innerHTML = question;
 
     // reset form
     $("#question")[0].value = "";
 
     // display searching img
-    searching();
+    SearchingGif('start');
     // run search
     $.ajax({url: "/grandpy/" + question, success: grandpy});
   };

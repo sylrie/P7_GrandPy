@@ -3,7 +3,7 @@
 
 
 from flask import Flask, render_template, jsonify 
-from search import UserRequest
+from .search import UserRequest
 
 app = Flask(__name__)
 

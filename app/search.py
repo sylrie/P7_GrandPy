@@ -2,9 +2,9 @@
 # coding: UTF-8
 
 from requests import get
-from killerparser import Parser
-from api import GmapsRequest, MediawikiRequest
-from grandpy import Grandpy
+from .classes.killerparser import Parser
+from .classes.api import GmapsRequest, MediawikiRequest
+from .classes.grandpy import Grandpy
 
 
 class UserRequest:
