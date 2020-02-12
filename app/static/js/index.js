@@ -1,6 +1,7 @@
 const valid = $("#user_request")[0];
 var count = 0;
 
+// manage and display the response
 function grandpy(response) {
   
   let elt = $("#grandpy")[0];
@@ -51,7 +52,7 @@ function grandpy(response) {
 window.scrollTo(0,document.body.scrollHeight);
 };
 
-
+// init google map
 function initMap(lat, lng, map) {
   var pos = {lat: lat, lng: lng};
   var map = new google.maps.Map(map , {
@@ -64,6 +65,7 @@ function initMap(lat, lng, map) {
   });
 };
 
+//manage searching Gif
 function SearchingGif(action){
   let elt = $("#grandpy")[0];
   if (action == "start"){
@@ -80,7 +82,7 @@ function SearchingGif(action){
   }
 };
 
-// 
+//send the question to the app
 valid.addEventListener("submit", function(evt) {
   
   // user request
