@@ -1,2 +1,2 @@
-web: gunicorn run:app --log-file--
+web: gunicorn run:app
 init: FLASK_APP=run.py
