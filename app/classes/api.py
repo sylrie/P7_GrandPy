@@ -92,8 +92,11 @@ class MediawikiRequest():
             request = get(url=url, params=params)
             result = request.json()
             pages = result['query']['pages']
+
             for key, args in pages.items():
                 self.story = args['extract'], args['fullurl']
         except:
             pass
+
         return self.story
+

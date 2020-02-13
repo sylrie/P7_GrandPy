@@ -19,42 +19,47 @@
         
         <title>Grandpy Bot</title>
     </head>
-    
+
     <body class="d-flex flex-column h-100 bg-secondary">
-        
+
+        <!-- Header -->
         <header class="header md-auto border-bottom px-3 py-1 mb-1 bg-dark text-white">
-            <div class="row w-100 justify-content-md-between">
-                <img class="row col-sm-auto img-fluid rounded" style="max-width:25%" src="..\static\img\logo.png" alt="Granpy">
-                <h1 class="row col-sm-5 align-items-center text-center"> Grandpy Bot</h1>
-                <h2 class="row col-sm-5 align-items-center text-center">Le papy qui trouve tout !</h2>
+            <div class="row w-100 justify-content-lg-center">
+                <img class="d-flex flex-column col-sm-auto align-items-center img-fluid rounded" style="max-width:25%" src="..\static\img\logo.png" alt="Granpy">
+                <h1 class="d-flex flex-column col-sm-auto align-items-center text-center"> Grandpy Bot</h1>
+                <h2 class="d-flex flex-row-reverse col-sm-5 align-items-center text-center">Le papy qui trouve tout !</h2>
             </div>
         </header>
-        
+
+        <!-- Main -->
         <main>
+            <!-- Welcome zone -->
             <div class="container w-100 ">
                 <div id="imgBox" class="row justify-content-sm-center">
                     <img id="welcome" class="col-sm-auto py-1 img-fluid rounded" src="..\static\img\carl.png" alt="Granpy">
                 </div>
             </div>
 
+            <!-- ChatBox zone -->
             <div id="chatbox" class="container justify-content-lg-center rounded bg-dark font-weight-bold text-info"></div>
 
+            <!-- UserForm zone -->
             <form id="user_request" class="container align-self-center text-center py-1">
-                    
+ 
                 <input class="col-lg-5 border-light rounded bg-light text-dark my-1" type="text" id="question"
                     placeholder="Demande-moi ce que tu veux ici"
                     onFocus="if(this.value!='')this.value=''"/>
-                
+
                 <input class="col-xs-1 bg-primary text-dark border border-dark rounded" type="submit" id="valid" value="Valider"/>
                 
             </form>
 
         </main>
-        
+
         <!-- Sticky Footer -->
         <footer class="footer mt-auto border-top text-center py-1 bg-dark text-white">
             <div class="row w-100 justify-content-md-around">
-              <div class="col-md-auto border rounded">
+              <div class="col-md-auto border rounded text">
                 Voir le code sur
                 <a href="https://github.com/sylrie" target ="_blank">
                     GitHub <img src="..\static\img\github.png" class="img-fluid" alt="linkedin"></a>
@@ -70,21 +75,18 @@
                     Linkedin <img src="..\static\img\linkedin.png" class="img-fluid" alt="linkedin"></a>
               </div>
             </div>
-          </footer> 
-        
+        </footer> 
+
         <!-- jQuery -->
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-        
+
         <!-- javaScript -->
         <script type="text/javascript" src="../static/js/index.js"></script>
         <!-- GoogleMaps -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJPIv3WDCKR5gPkNf9f_BOtUAlXX-MaxM"
         async defer></script>
-        
-    </body>
 
-    
+    </body>
 </html>

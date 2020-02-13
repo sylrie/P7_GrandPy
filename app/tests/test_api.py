@@ -1,12 +1,13 @@
+""" Manage tests for API"""
+
 #! /usr/bin/env python3
 # coding: UTF-8
 
 from ..classes.api import GmapsRequest, MediawikiRequest
-
 import urllib.request
 
-
 def test_googlemaps_ok(monkeypatch):
+    """ Test for GoogleMaps return ok"""
 
     test_result = {
         'status': 'OK',
@@ -22,6 +23,7 @@ def test_googlemaps_ok(monkeypatch):
     assert GmapsRequest('openclassrooms').data == test_result
 
 def test_googlemaps_error(monkeypatch):
+    """ Test for GoogleMaps return error"""
 
     test_result = {'status': 'INVALID_REQUEST'}
     
@@ -32,6 +34,8 @@ def test_googlemaps_error(monkeypatch):
     assert GmapsRequest('').data == test_result
 
 def test_mediawiki(monkeypatch):
+    """ Test for MediaWiki return"""
+
     test_story = ("L'Hôtel Bourrienne (appelé aussi Hôtel de Bourrienne et Petit Hôtel "
             'Bourrienne) est un hôtel particulier du XVIIIe siècle situé au 58 rue '
             "d'Hauteville dans le 10e arrondissement de Paris. Propriété privée, il est "
