@@ -28,7 +28,7 @@ function grandpy(response) {
     count++;
     let map = elt.appendChild(document.createElement("div"));
     map.id = "map" + count;
-    map.setAttribute("class", "map col-lg-6 justify-content-lg-center my-1");
+    map.setAttribute("class", "map col-lg-6 my-1");
     map.style.height = "300px";
   
     if (lat != "") {
