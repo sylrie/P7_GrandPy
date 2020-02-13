@@ -2,16 +2,15 @@
 
 #! /usr/bin/env python3
 # coding: UTF-8
-
+import os
 from requests import get
-from .config import API_KEY
 
 class GmapsRequest():
     """ Use GoogleMaps API (geocode) for find the adress"""
 
     def __init__(self, user_request):
 
-        self.api_key = API_KEY
+        self.api_key = os.getenv("API_KEY_server")
         self.user_request = user_request
         self.data = {}
 
