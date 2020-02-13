@@ -4,7 +4,7 @@ var count = 0;
 // manage and display the response
 function grandpy(response) {
   
-  let elt = $("#grandpy")[0];
+  let elt = $("#chatbox")[0];
   
   let papy_1 = response["papy_1"];
   let address = response["address"];
@@ -14,21 +14,22 @@ function grandpy(response) {
   let lat = response["lat"];
   let lng = response["lng"];
   
-  SearchingGif('stop');
+  searchingGif("stop");
 
-  var newP = elt.appendChild(document.createElement('p'));
+  var newP = elt.appendChild(document.createElement("p"));
   newP.innerHTML += papy_1;
   
   if (address != "") {
-    var newP = elt.appendChild(document.createElement('p'));
-    var strong = newP.appendChild(document.createElement('STRONG'));
-    strong.setAttribute('class', 'text-warning')
+    var newP = elt.appendChild(document.createElement("p"));
+    var strong = newP.appendChild(document.createElement("STRONG"));
+    strong.setAttribute("class", "text-warning")
     strong.innerHTML = address;
     
     count++;
-    let map = elt.appendChild(document.createElement('div'));
+    let map = elt.appendChild(document.createElement("div"));
     map.id = "map" + count;
-    map.setAttribute('class', 'map col-lg-7 justify-content-lg-center my-1');
+    map.setAttribute("class", "map col-lg-6 justify-content-lg-center my-1");
+    map.style.height = "300px";
   
     if (lat != "") {
       initMap(lat, lng, map);
@@ -36,19 +37,22 @@ function grandpy(response) {
   };
   
   if (papy_2 != "") {
-    var newP = elt.appendChild(document.createElement('p'));
+    var newP = elt.appendChild(document.createElement("p"));
     newP.innerHTML += papy_2;
   };
+
   if (story != "") {
-    var newP = elt.appendChild(document.createElement('p'));
+    var newP = elt.appendChild(document.createElement("p"));
     newP.innerHTML += story;
   };
+
   if (fullurl != "") {
-    var newP = elt.appendChild(document.createElement('p'));
+    var newP = elt.appendChild(document.createElement("p"));
     newP.innerHTML += (
       "Va demander à <a id='link' href=" + fullurl + " target=_blank>WikiPedia</a> si tu ne me crois pas!"
     );
   };
+  
 window.scrollTo(0,document.body.scrollHeight);
 };
 
@@ -56,7 +60,7 @@ window.scrollTo(0,document.body.scrollHeight);
 function initMap(lat, lng, map) {
   var pos = {lat: lat, lng: lng};
   var map = new google.maps.Map(map , {
-    zoom: 10,
+    zoom: 12,
     center: pos
   });
   var marker = new google.maps.Marker({
@@ -66,20 +70,30 @@ function initMap(lat, lng, map) {
 };
 
 //manage searching Gif
-function SearchingGif(action){
-  let elt = $("#grandpy")[0];
+function searchingGif(action){
+  let elt = $("#chatbox")[0];
   if (action == "start"){
     
-    var newA = elt.appendChild(document.createElement('a'));
-    newA.id ='searching';
-    newA.setAttribute("class", "row justify-content-lg-center");
+    var newA = elt.appendChild(document.createElement("a"));
+    newA.id ="searching";
 
-    var newImg = newA.appendChild(document.createElement('img'));
-    newImg.src = '../static/img/loader.gif';
+    var newImg = newA.appendChild(document.createElement("img"));
+    newImg.src = "../static/img/loader.gif";
+    window.scrollTo(0,document.body.scrollHeight);
   } else {
     let gif = $("#searching")[0];
     elt.removeChild(gif);
   }
+};
+
+//remove the welcome image
+function deleteWelcomeImg(){
+  let imgBox = $("#imgBox")[0];
+  let welcome = $("#welcome")[0];
+  if ($("#welcome")[0]){
+    imgBox.removeChild(welcome)
+    }else{
+    };
 };
 
 //send the question to the app
@@ -89,21 +103,23 @@ valid.addEventListener("submit", function(evt) {
   var question = $("#question")[0].value;
   
   if (question.trim() != "") {
-  
+    
+    //remove welcome image
+    deleteWelcomeImg();
     //select element
-    let elt = $('#grandpy')[0];
+    let elt = $("#chatbox")[0];
     
     // display the question
-    let user = elt.appendChild(document.createElement('p'));
-    user.id = 'user';
-    user.setAttribute('class', 'text-success text-right')
+    let user = elt.appendChild(document.createElement("p"));
+    user.id = "user";
+    user.setAttribute("class", "text-success text-right")
     user.innerHTML = question;
-
+    window.scrollTo(0,document.body.scrollHeight);
     // reset form
     $("#question")[0].value = "";
 
     // display searching img
-    SearchingGif('start');
+    searchingGif("start");
     // run search
     $.ajax({url: "/grandpy/" + question, success: grandpy});
   };
