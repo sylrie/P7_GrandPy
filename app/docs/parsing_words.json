@@ -17,7 +17,9 @@
         "connais", "connaissez",
         "sais",
         "adresse",
-        "trouve", "trouver"
+        "trouve", "trouver",
+        "aller",
+        "rendre"
     ],
 
     "stopwords": [  
