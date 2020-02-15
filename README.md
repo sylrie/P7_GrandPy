@@ -3,10 +3,12 @@
 </p>
 
 <p align="center">
-    <img width=45% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/googlemaps.png">
-    <img width=45% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/MediaWiki.png">
+    <img width=45% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/api.png">
 </p>
 
+<p align="center">
+    <img width=45% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/tools.png">
+</p>
 > Web application with Python, Flask and JavaScript(AJAX)
 
 ## GET STARTED

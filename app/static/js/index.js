@@ -48,13 +48,11 @@ function grandpy(response) {
 
   if (fullurl != "") {
     var newP = elt.appendChild(document.createElement("p"));
-    newP.id = 'link';
     newP.innerHTML += (
       "Si tu en veux plus, vas voir sur "
     );
 
-    let link = $("#link")[0];
-    var newA = link.appendChild(document.createElement("a"));
+    var newA = newP.appendChild(document.createElement("a"));
     var linkText = document.createTextNode("Wikipedia");
     newA.appendChild(linkText);
     newA.href = fullurl;
