@@ -2,18 +2,18 @@
     <img width=50% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/P7_logo.png">
 </p>
 
-<p align="center">
-    <img width=45% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/api.png">
-</p>
 
+</p>
+> Web application with Python, Flask and JavaScript(AJAX)
 <p align="center">
     <img width=45% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/tools.png">
 </p>
-> Web application with Python, Flask and JavaScript(AJAX)
+> API
+<p align="center">
+    <img width=45% src="https://github.com/sylrie/P7_GrandPy/blob/master/app/static/img/api.png">
 
 ## GET STARTED
-* click (or copy/paste) this url:
-  https://srgrandpybot.herokuapp.com
+* The web app is here [GrandPy Bot](https://srgrandpybot.herokuapp.com)
 
 ## FEATURES
 * Ask Grandpy about any places,
